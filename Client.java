@@ -1,15 +1,9 @@
-<<<<<<< HEAD
 /**
  * @(#) Client.java
  */
 
 public class Client
 {
-=======
-public class Client {
-	private MenuItem menuitem;
-
->>>>>>> 5259543ea809078ad695ec9b6fbbcb479c136156
 	private String name;
 	
 	private String surname;
