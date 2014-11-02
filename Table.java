@@ -4,10 +4,6 @@
 
 public class Table
 {
-	private Waiter waiter;
-	
-	private Restaurant restaurant;
-	
 	private Client client;
 	
 	private int number;

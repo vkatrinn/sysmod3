@@ -4,19 +4,17 @@
 
 public class Player
 {
-	private GameController gamecontroller;
-	
 	private RankingList rankinglist;
 	
 	private Restaurant restaurant;
-	
-	private Employee employee;
 	
 	private MenuItem menuitem;
 	
 	private String name;
 	
 	private int score;
+	
+	private Employee employee;
 	
 	public void setName( String name )
 	{

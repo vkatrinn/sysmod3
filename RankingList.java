@@ -4,7 +4,5 @@
 
 public class RankingList
 {
-	private Player player;
-	
 	
 }

@@ -6,9 +6,9 @@ import hw3.Quality;
 
 public class GameController
 {
-	private Player player;
-	
 	private Restaurant restaurant;
+	
+	private Player player;
 	
 	public void ChooseName( String name )
 	{

@@ -6,12 +6,6 @@ import hw3.Quality;
 
 public class MenuItem
 {
-	private Player player;
-	
-	private Restaurant restaurant;
-	
-	private Client client;
-	
 	private String name;
 	
 	private Quality quality;

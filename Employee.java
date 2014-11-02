@@ -6,10 +6,6 @@ import hw3.Experience;
 
 public class Employee
 {
-	private Player player;
-	
-	private Restaurant restaurant;
-	
 	private String name;
 	
 	private String surname;

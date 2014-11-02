@@ -4,10 +4,6 @@
 
 public class Restaurant
 {
-	private GameController gamecontroller;
-	
-	private Player player;
-	
 	private MenuItem menuitem;
 	
 	private Orders orders;
