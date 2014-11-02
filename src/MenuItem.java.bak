@@ -3,6 +3,7 @@ import hw3.Quality;
 /**
  * @(#) MenuItem.java
  */
+
 public class MenuItem {
 	private String name;
 

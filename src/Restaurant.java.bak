@@ -1,8 +1,11 @@
 /**
  * @(#) Restaurant.java
  */
+
 public class Restaurant {
 	private MenuItem menuitem;
+
+	// private Orders orders;
 
 	private Employee employee;
 
@@ -17,8 +20,6 @@ public class Restaurant {
 	private int budget;
 
 	private int reputationPoints;
-
-	private Orders orders;
 
 	public void PaySuppliers(int amount) {
 

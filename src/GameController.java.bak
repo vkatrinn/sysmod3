@@ -3,13 +3,14 @@ import hw3.Quality;
 /**
  * @(#) GameController.java
  */
+
 public class GameController {
 	private Restaurant restaurant;
 
 	private Player player;
 
 	public void ChooseName(String name) {
-		this.player.setName(name);
+
 	}
 
 	public void StartGame() {
