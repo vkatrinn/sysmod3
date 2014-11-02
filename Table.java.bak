@@ -1,8 +1,14 @@
+/**
+ * @(#) Table.java
+ */
+
 public class Table
 {
+	private Waiter waiter;
 	
-
-private Client client;
+	private Restaurant restaurant;
+	
+	private Client client;
 	
 	private int number;
 	

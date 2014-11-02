@@ -1,5 +1,11 @@
+/**
+ * @(#) Client.java
+ */
+
 public class Client {
 	private MenuItem menuitem;
+
+	private Table table;
 
 	private String name;
 
