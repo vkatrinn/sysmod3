@@ -1,12 +1,14 @@
+import hw3.ReputationLevel;
+
 /**
  * @(#) Restaurant.java
  */
 public class Restaurant {
-	private MenuItem menuitem;
+	private java.util.List<MenuItem> menuitem;
 
-	private Employee employee;
+	private java.util.List<Employee> employee;
 
-	private Table table;
+	private java.util.List<Table> table;
 
 	private String name;
 
@@ -20,71 +22,72 @@ public class Restaurant {
 
 	private Orders orders;
 
-	public void PaySuppliers(int amount) {
+	public ReputationLevel CalculateReputation( ) {
+		if (reputationPoints < 15)
+			return ReputationLevel.LOW;
+		if (reputationPoints >= 30)
+			return ReputationLevel.HIGH;
+		return ReputationLevel.MEDIUM;
+	}
+
+	public void PopulateTables( ) {
+		if (this.CalculateReputation().equals(ReputationLevel.HIGH)) {
+			// TODO occupy all tables
+		}
+		if (this.CalculateReputation().equals(ReputationLevel.MEDIUM)) {
+			// TODO occupy 5 tables
+		} else {
+			// TODO occupy 2 tables
+		}
+	}
+
+	public void ComputeClientStatistics( ) {
 
 	}
 
-	public void CalculateReputation() {
-
+	public void paySalaries( ) {
+		for (Employee e : employee) {
+			this.budget -= e.ComputeSalary();
+		}
 	}
 
-	public void PayUtilities(int amount) {
-
-	}
-
-	public void PaySalaries(int amount) {
-
-	}
-
-	public void PopulateTables() {
-
-	}
-
-	public void ComputeClientStatistics() {
-
-	}
-
-	public void PayForTraining(int amount) {
-
-	}
-
-	public void setName(String name) {
+	public void setName( String name ) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName( ) {
 		return name;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress( String address ) {
 		this.address = address;
 	}
 
-	public String getAddress() {
+	public String getAddress( ) {
 		return address;
 	}
 
-	public void setCity(String city) {
+	public void setCity( String city ) {
 		this.city = city;
 	}
 
-	public String getCity() {
+	public String getCity( ) {
 		return city;
 	}
 
-	public void setBudget(int budget) {
+	public void setBudget( int budget ) {
 		this.budget = budget;
 	}
 
-	public int getBudget() {
+	public int getBudget( ) {
 		return budget;
 	}
 
-	public void setReputationPoints(int reputationPoints) {
+	public void setReputationPoints( int reputationPoints ) {
 		this.reputationPoints = reputationPoints;
 	}
 
-	public int getReputationPoints() {
+	public int getReputationPoints( ) {
 		return reputationPoints;
 	}
 

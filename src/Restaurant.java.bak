@@ -1,13 +1,12 @@
+import hw3.ReputationLevel;
+
 /**
  * @(#) Restaurant.java
  */
-
 public class Restaurant {
 	private MenuItem menuitem;
 
-	// private Orders orders;
-
-	private Employee employee;
+	private java.util.List<Employee> employee;
 
 	private Table table;
 
@@ -21,32 +20,35 @@ public class Restaurant {
 
 	private int reputationPoints;
 
-	public void PaySuppliers(int amount) {
+	private Orders orders;
 
-	}
-
-	public void CalculateReputation() {
-
-	}
-
-	public void PayUtilities(int amount) {
-
-	}
-
-	public void PaySalaries(int amount) {
-
+	public ReputationLevel CalculateReputation() {
+		if (reputationPoints < 15)
+			return ReputationLevel.LOW;
+		if (reputationPoints >= 30)
+			return ReputationLevel.HIGH;
+		return ReputationLevel.MEDIUM;
 	}
 
 	public void PopulateTables() {
-
+		if (this.CalculateReputation().equals(ReputationLevel.HIGH)) {
+			// TODO occupy all tables
+		}
+		if (this.CalculateReputation().equals(ReputationLevel.MEDIUM)) {
+			// TODO occupy 5 tables
+		} else {
+			// TODO occupy 2 tables
+		}
 	}
 
 	public void ComputeClientStatistics() {
 
 	}
 
-	public void PayForTraining(int amount) {
-
+	public void paySalaries() {
+		for (Employee e : employee) {
+			this.budget -= e.ComputeSalary();
+		}
 	}
 
 	public void setName(String name) {

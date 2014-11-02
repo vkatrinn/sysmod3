@@ -14,19 +14,19 @@ public class Player {
 
 	private Employee employee;
 
-	public void setName(String name) {
+	public void setName( String name ) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName( ) {
 		return name;
 	}
 
-	public void setScore(int score) {
+	public void setScore( int score ) {
 		this.score = score;
 	}
 
-	public int getScore() {
+	public int getScore( ) {
 		return score;
 	}
 

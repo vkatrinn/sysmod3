@@ -4,12 +4,17 @@ import java.util.ArrayList;
  * @(#) Waiter.java
  */
 public class Waiter extends Employee {
-	private ArrayList<Table> table;
+	private java.util.List<Table> table;
 
-	private ArrayList<Table> tables;
-
-	public void assignTables(ArrayList<Table> tables) {
-		this.tables = tables;
+	public void assignTables( ArrayList<Table> tables ) {
+		this.table = tables;
 	}
 
+	public int ComputeSalary( ) {
+		return super.ComputeSalary();
+	}
+
+	public int getCostOfTraining( ) {
+		return 800;
+	}
 }
