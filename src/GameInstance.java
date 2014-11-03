@@ -11,7 +11,7 @@ public class GameInstance {
 	static RankingList rankingList;
 	static GameController game;
 	private static java.util.List<MenuItem> menuItems = new ArrayList<MenuItem>();
-	private static java.util.List<Employee> employees;
+	private static java.util.List<Employee> employees = new ArrayList<Employee>();
 
 	public static void main(String[] args) throws IOException {
 		boolean successful = true;
