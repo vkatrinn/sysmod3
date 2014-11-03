@@ -10,8 +10,6 @@ public abstract class MenuItem {
 
 	private int price;
 
-	public abstract int ComputeProductionPrice( );
-
 	public void setName( String name ) {
 		this.name = name;
 	}
@@ -36,4 +34,5 @@ public abstract class MenuItem {
 		return price;
 	}
 
+	public abstract int computeProductionPrice( );
 }

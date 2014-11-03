@@ -110,7 +110,7 @@ public class GameInstance {
 			if (i < 6)
 				menuItems.add(new Dish(dish, 100, quality));
 			else
-				menuItems.add(new Dish(dish, 100, quality));
+				menuItems.add(new Beverage(dish, 1, quality));
 		}
 	}
 

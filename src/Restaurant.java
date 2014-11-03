@@ -10,11 +10,11 @@ import java.util.Random;
  * @(#) Restaurant.java
  */
 public class Restaurant {
-	public java.util.List<Order> getOrders() {
+	public List<Order> getOrders() {
 		return orders;
 	}
 
-	public void setOrders(java.util.List<Order> orders) {
+	public void setOrders(List<Order> orders) {
 		this.orders = orders;
 	}
 
@@ -165,10 +165,36 @@ public class Restaurant {
 				int beverage = r.nextInt(5) + 5;
 				menuChoice.add(menuitems.get(dish));
 				menuChoice.add(menuitems.get(beverage));
-				Order order = new Order(c, menuChoice);
+				int foodSatProb = 80;
+				int bevSatProb = 80;
+				int servSatProb = 80;
+				if (employees.get(4).getExperience().equals(Experience.LOW))
+					foodSatProb = 40;
+				if (employees.get(4).getExperience().equals(Experience.MEDIUM))
+					foodSatProb = 60;
+				if (employees.get(3).getExperience().equals(Experience.LOW))
+					bevSatProb = 40;
+				if (employees.get(3).getExperience().equals(Experience.MEDIUM))
+					bevSatProb = 60;
+				if (findWaiter(t).getExperience().equals(Experience.LOW))
+					bevSatProb = 40;
+				if (findWaiter(t).getExperience().equals(Experience.MEDIUM))
+					bevSatProb = 60;
+				Order order = new Order(c, menuChoice, foodSatProb, bevSatProb,
+						servSatProb);
 				orders.add(order);
 			}
 		}
+	}
+
+	public Waiter findWaiter(Table t) {
+		Waiter waiter = new Waiter("Waiter", "Waiter", Experience.LOW);
+		ArrayList<Waiter> waiters = getWaiters();
+		for (Waiter w : waiters) {
+			if (waiter.getTables().contains(t))
+				return w;
+		}
+		return waiter;
 	}
 
 	public int processOrders() {

@@ -6,6 +6,12 @@ import hw3.Quality;
 public class Beverage extends MenuItem {
 	private int volume;
 
+	public Beverage( String name, int volume, Quality quality ) {
+		this.name = name;
+		this.volume = volume;
+		this.quality = quality;
+	}
+
 	public void setVolume( int volume ) {
 		this.volume = volume;
 	}

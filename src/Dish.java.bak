@@ -21,7 +21,7 @@ public class Dish extends MenuItem {
 	}
 
 	@Override
-	public int ComputeProductionPrice( ) {
+	public int computeProductionPrice( ) {
 		if (this.getQuality().equals(Quality.HIGH))
 			return 10;
 		else

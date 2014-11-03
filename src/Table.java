@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @(#) Table.java
@@ -8,23 +9,23 @@ public class Table {
 
 	private int number;
 
-	public Table(int number) {
+	public Table( int number ) {
 		this.number = number;
 	}
 
-	public void setNumber(int number) {
+	public void setNumber( int number ) {
 		this.number = number;
 	}
 
-	public int getNumber() {
+	public int getNumber( ) {
 		return number;
 	}
 
-	public java.util.List<Client> getClients() {
+	public List<Client> getClients( ) {
 		return clients;
 	}
 
-	public void setClients(java.util.List<Client> clients) {
+	public void setClients( List<Client> clients ) {
 		this.clients = clients;
 	}
 
