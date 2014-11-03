@@ -17,4 +17,18 @@ public class Order {
 		return menuItems;
 	}
 
+	public int calculateProductionCost() {
+		int cost = 0;
+		for (MenuItem m : menuItems)
+			cost += m.computeProductionPrice();
+		return cost;
+	}
+
+	public int calculatePrice() {
+		int price = 0;
+		for (MenuItem m : menuItems)
+			price += m.getPrice();
+		return price;
+	}
+
 }

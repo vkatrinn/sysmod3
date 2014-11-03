@@ -15,7 +15,7 @@ public class Beverage extends MenuItem {
 	}
 
 	@Override
-	public int ComputeProductionPrice( ) {
+	public int computeProductionPrice( ) {
 		if (this.getQuality().equals(Quality.HIGH))
 			return 3;
 		else

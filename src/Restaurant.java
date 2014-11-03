@@ -10,6 +10,14 @@ import java.util.Random;
  * @(#) Restaurant.java
  */
 public class Restaurant {
+	public java.util.List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(java.util.List<Order> orders) {
+		this.orders = orders;
+	}
+
 	private java.util.List<MenuItem> menuitems;
 
 	private java.util.List<Employee> employees;
@@ -161,5 +169,14 @@ public class Restaurant {
 				orders.add(order);
 			}
 		}
+	}
+
+	public int processOrders() {
+		int supplyCost = 0;
+		for (Order o : orders) {
+			this.budget += o.calculatePrice();
+			supplyCost += o.calculateProductionCost();
+		}
+		return supplyCost;
 	}
 }
