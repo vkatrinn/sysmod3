@@ -15,8 +15,13 @@ public class GameInstance {
 
 	public static void main(String[] args) throws IOException {
 		StartGame();
-		while (day < 30)
+		int weeklySupplyCost = 0;
+		while (day < 30) {
+			if (day % 7 == 0)
+				game.getRestaurant().setBudget(
+						game.getRestaurant().getBudget() - weeklySupplyCost);
 			startDay();
+		}
 	}
 
 	public static void startDay() throws IOException {
@@ -28,6 +33,7 @@ public class GameInstance {
 				+ game.getRestaurant().calculateReputation() + ".");
 		game.getRestaurant().assignTables();
 		game.getRestaurant().populateTables();
+		game.getRestaurant().acceptOrders();
 		day++;
 
 	}

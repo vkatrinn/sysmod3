@@ -1,12 +1,12 @@
+import java.util.List;
+
 public class Order {
 	private Client client;
 	private java.util.List<MenuItem> menuItems;
 
-	public Order(Client client, java.util.List<MenuItem> menuItems) {
-		if (client != null && menuItems != null) {
-			this.client = client;
-			this.menuItems = menuItems;
-		}
+	public Order(Client client, List<MenuItem> menuItems) {
+		this.client = client;
+		this.menuItems = menuItems;
 	}
 
 	public Client getClient() {

@@ -147,4 +147,19 @@ public class Restaurant {
 		return waiters;
 	}
 
+	public void acceptOrders() {
+		orders = new ArrayList<Order>();
+		Random r = new Random();
+		for (Table t : tables) {
+			for (Client c : t.getClients()) {
+				ArrayList<MenuItem> menuChoice = new ArrayList<MenuItem>();
+				int dish = r.nextInt(5);
+				int beverage = r.nextInt(5) + 5;
+				menuChoice.add(menuitems.get(dish));
+				menuChoice.add(menuitems.get(beverage));
+				Order order = new Order(c, menuChoice);
+				orders.add(order);
+			}
+		}
+	}
 }
