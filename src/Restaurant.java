@@ -1,4 +1,8 @@
+import hw3.Experience;
 import hw3.ReputationLevel;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -23,13 +27,14 @@ public class Restaurant {
 
 	private java.util.List<Order> orders;
 
-	public Restaurant( List<MenuItem> menuitem, List<Employee> employee, String name ) {
+	public Restaurant(List<MenuItem> menuitem, List<Employee> employee,
+			String name) {
 		this.menuitems = menuitem;
 		this.employees = employee;
 		this.name = name;
 	}
 
-	public ReputationLevel CalculateReputation( ) {
+	public ReputationLevel calculateReputation() {
 		if (reputationPoints < 15)
 			return ReputationLevel.LOW;
 		if (reputationPoints >= 30)
@@ -37,65 +42,97 @@ public class Restaurant {
 		return ReputationLevel.MEDIUM;
 	}
 
-	public void PopulateTables( ) {
-		if (this.CalculateReputation().equals(ReputationLevel.HIGH)) {
-			// TODO occupy all tables
+	public void assignTables() {
+		int i = 0;
+		if (this.calculateReputation().equals(ReputationLevel.LOW)) {
+			i = 2;
 		}
-		if (this.CalculateReputation().equals(ReputationLevel.MEDIUM)) {
-			// TODO occupy 5 tables
+		if (this.calculateReputation().equals(ReputationLevel.MEDIUM)) {
+			i = 5;
 		} else {
-			// TODO occupy 2 tables
+			i = 9;
 		}
+		ArrayList<Table> tablesforDay = new ArrayList<Table>();
+		for (int k = 0; k < i; k++) {
+			tablesforDay.add(new Table(k));
+		}
+		ArrayList<Waiter> waiters = getWaiters();
+		Collections.sort(waiters);
+		for (Waiter w : waiters)
+			System.out.println(w.getExperience());
+		for (int j = 0; j < i; j++) {
+			if (j < 3) {
+				waiters.get(0).getTables().add(tablesforDay.get(j));
+			} else if (j < 6) {
+				waiters.get(1).getTables().add(tablesforDay.get(j));
+			} else
+				waiters.get(2).getTables().add(tablesforDay.get(j));
+		}
+		System.out.println(i + " tables assigned to waitresses!");
 	}
 
-	public void ComputeClientStatistics( ) {
+	public void populateTables() {
 
 	}
 
-	public void paySalaries( ) {
+	public void computeClientStatistics() {
+
+	}
+
+	public void paySalaries() {
 		for (Employee e : employees) {
 			this.budget -= e.ComputeSalary();
 		}
 	}
 
-	public void setName( String name ) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName( ) {
+	public String getName() {
 		return name;
 	}
 
-	public void setAddress( String address ) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 
-	public String getAddress( ) {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setCity( String city ) {
+	public void setCity(String city) {
 		this.city = city;
 	}
 
-	public String getCity( ) {
+	public String getCity() {
 		return city;
 	}
 
-	public void setBudget( int budget ) {
+	public void setBudget(int budget) {
 		this.budget = budget;
 	}
 
-	public int getBudget( ) {
+	public int getBudget() {
 		return budget;
 	}
 
-	public void setReputationPoints( int reputationPoints ) {
+	public void setReputationPoints(int reputationPoints) {
 		this.reputationPoints = reputationPoints;
 	}
 
-	public int getReputationPoints( ) {
+	public int getReputationPoints() {
 		return reputationPoints;
+	}
+
+	public ArrayList<Waiter> getWaiters() {
+		ArrayList<Waiter> waiters = new ArrayList<Waiter>();
+		for (Employee e : employees) {
+			if (e.getClass().equals(
+					new Waiter("Waiter", "Waiter", Experience.LOW).getClass()))
+				waiters.add((Waiter) e);
+		}
+		return waiters;
 	}
 
 }

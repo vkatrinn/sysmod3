@@ -20,8 +20,18 @@ public class GameInstance {
 	}
 
 	public static void startDay() throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		System.out.println("It is day " + day + ".");
+		System.out.println("Budget is currently "
+				+ game.getRestaurant().getBudget() + ".");
+		offerTrainingOption();
+		System.out.println("Reputation of your restaurant is currently "
+				+ game.getRestaurant().calculateReputation() + ".");
+		game.getRestaurant().assignTables();
+
+	}
+
+	public static void offerTrainingOption() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		while (true) {
 			System.out
 					.println("Do you wish to train an employee? Write N fro no and Y for yes");
@@ -39,8 +49,13 @@ public class GameInstance {
 				}
 				System.out
 						.println("Specify the number of employee you would like to train");
-				int indexOfEmployee = Integer.parseInt(br.readLine()) - 1;
-				game.TrainEmployee(employees.get(indexOfEmployee));
+				try {
+					int indexOfEmployee = Integer.parseInt(br.readLine()) - 1;
+					game.TrainEmployee(employees.get(indexOfEmployee));
+				} catch (NumberFormatException e) {
+					System.out
+							.println("That is not a suitable employee number. Did you change your mind?");
+				}
 			} else {
 				System.out
 						.println("I did not understand you. Was that a Yes (Y) or No (N)?");

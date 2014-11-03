@@ -3,7 +3,7 @@ import hw3.Experience;
 /**
  * @(#) Employee.java
  */
-public abstract class Employee {
+public abstract class Employee implements Comparable<Employee> {
 	private String name;
 
 	private String surname;
@@ -63,5 +63,19 @@ public abstract class Employee {
 	}
 
 	public abstract int getCostOfTraining();
+
+	@Override
+	public int compareTo(Employee o) {
+		if (this.experience.equals(o.experience))
+			return 0;
+		if ((this.experience.equals(Experience.LOW) && (o.experience
+				.equals(Experience.MEDIUM) || o.experience
+				.equals(Experience.HIGH)))
+				|| (this.experience.equals(Experience.MEDIUM) && o.experience
+						.equals(Experience.HIGH)))
+			return 1;
+		else
+			return -1;
+	}
 
 }
