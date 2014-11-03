@@ -10,8 +10,9 @@ public class GameInstance {
 	static int day = 0;
 	static RankingList rankingList;
 	static GameController game;
-	private static java.util.List<MenuItem> menuItems = new ArrayList<MenuItem>();
-	private static java.util.List<Employee> employees;
+	static private java.util.List<MenuItem> menuItems = new ArrayList<MenuItem>();
+	static ArrayList<Client> clients = new ArrayList<Client>();
+	static ArrayList<Employee> employees = new ArrayList<Employee>();
 
 	public static void main(String[] args) throws IOException {
 		boolean successful = true;
@@ -37,7 +38,6 @@ public class GameInstance {
 			System.out
 					.println("After substracting additional costs the final budget is: "
 							+ game.getRestaurant().getBudget());
-			game.getPlayer().setScore(game.getRestaurant().getBudget());
 			rankingList.updateRanking();
 		} else {
 			System.out
@@ -111,9 +111,10 @@ public class GameInstance {
 				.readLine();
 		initiateMenuItemQualities();
 		initiateFoodPrice();
+		initiateClients();
 		initiateEmployees();
 		game = new GameController(new ArrayList<MenuItem>(menuItems),
-				new ArrayList<Employee>(employees), initiateClients(), name);
+				employees, clients, name);
 
 	}
 
@@ -142,12 +143,10 @@ public class GameInstance {
 		}
 	}
 
-	public static ArrayList<Client> initiateClients() {
-		ArrayList<Client> clients = new ArrayList<Client>();
+	public static void initiateClients() {
 		for (int i = 1; i < 19; i++) {
 			clients.add(new Client("Client" + i, "Client" + i, "010-...", "0"));
 		}
-		return clients;
 	}
 
 	public static void initiateFoodPrice() throws IOException {
