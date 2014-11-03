@@ -1,10 +1,13 @@
 import hw3.Experience;
 import hw3.Quality;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class GameInstance {
+	static int day;
 	static GameController game;
 	static ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
 	static ArrayList<Client> clients = new ArrayList<Client>();
@@ -12,6 +15,26 @@ public class GameInstance {
 
 	public static void main(String[] args) throws IOException {
 		StartGame();
+
+	}
+
+	public static void startDay() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("It is day " + day + ".");
+		while (true) {
+			System.out
+					.println("Do you wish to train an employee? Write N fro no and Y for yes");
+			String in = br.readLine();
+			if (in.equals("N") || in.equals("n"))
+				break;
+			if (in.equals("Y") || in.equals("y")) {
+
+			} else {
+				System.out
+						.println("I did not understand you. Was that a Yes (Y) or No (N)?");
+			}
+
+		}
 
 	}
 
