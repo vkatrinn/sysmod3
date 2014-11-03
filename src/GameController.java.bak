@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import hw3.Quality;
 
@@ -13,8 +14,9 @@ public class GameController {
 		this.player.setName(name);
 	}
 
-	public void StartGame( ) {
-
+	public GameController( ArrayList<MenuItem> menu, ArrayList<Employee> employees ) {
+		this.player = new Player();
+		this.restaurant = new Restaurant(menu, employees, "Restaurant");
 	}
 
 	public void TrainEmployee( Employee employee ) {

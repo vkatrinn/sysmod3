@@ -10,29 +10,29 @@ public abstract class MenuItem {
 
 	private int price;
 
-	public abstract int ComputeProductionPrice();
+	public abstract int ComputeProductionPrice( );
 
-	public void setName(String name) {
+	public void setName( String name ) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName( ) {
 		return name;
 	}
 
-	public void setQuality(Quality quality) {
+	public void setQuality( Quality quality ) {
 		this.quality = quality;
 	}
 
-	public Quality getQuality() {
+	public Quality getQuality( ) {
 		return quality;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice( int price ) {
 		this.price = price;
 	}
 
-	public int getPrice() {
+	public int getPrice( ) {
 		return price;
 	}
 

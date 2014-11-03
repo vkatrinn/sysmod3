@@ -1,16 +1,15 @@
 import hw3.ReputationLevel;
-
 import java.util.List;
 
 /**
  * @(#) Restaurant.java
  */
 public class Restaurant {
-	private java.util.List<MenuItem> menuitem;
+	private java.util.List<MenuItem> menuitems;
 
-	private java.util.List<Employee> employee;
+	private java.util.List<Employee> employees;
 
-	private java.util.List<Table> table;
+	private java.util.List<Table> tables;
 
 	private String name;
 
@@ -22,16 +21,15 @@ public class Restaurant {
 
 	private int reputationPoints = 15;
 
-	// private Orders orders;
+	private java.util.List<Order> orders;
 
-	public Restaurant(List<MenuItem> menuitem, List<Employee> employee,
-			String name) {
-		this.menuitem = menuitem;
-		this.employee = employee;
+	public Restaurant( List<MenuItem> menuitem, List<Employee> employee, String name ) {
+		this.menuitems = menuitem;
+		this.employees = employee;
 		this.name = name;
 	}
 
-	public ReputationLevel CalculateReputation() {
+	public ReputationLevel CalculateReputation( ) {
 		if (reputationPoints < 15)
 			return ReputationLevel.LOW;
 		if (reputationPoints >= 30)
@@ -39,7 +37,7 @@ public class Restaurant {
 		return ReputationLevel.MEDIUM;
 	}
 
-	public void PopulateTables() {
+	public void PopulateTables( ) {
 		if (this.CalculateReputation().equals(ReputationLevel.HIGH)) {
 			// TODO occupy all tables
 		}
@@ -50,53 +48,53 @@ public class Restaurant {
 		}
 	}
 
-	public void ComputeClientStatistics() {
+	public void ComputeClientStatistics( ) {
 
 	}
 
-	public void paySalaries() {
-		for (Employee e : employee) {
+	public void paySalaries( ) {
+		for (Employee e : employees) {
 			this.budget -= e.ComputeSalary();
 		}
 	}
 
-	public void setName(String name) {
+	public void setName( String name ) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName( ) {
 		return name;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress( String address ) {
 		this.address = address;
 	}
 
-	public String getAddress() {
+	public String getAddress( ) {
 		return address;
 	}
 
-	public void setCity(String city) {
+	public void setCity( String city ) {
 		this.city = city;
 	}
 
-	public String getCity() {
+	public String getCity( ) {
 		return city;
 	}
 
-	public void setBudget(int budget) {
+	public void setBudget( int budget ) {
 		this.budget = budget;
 	}
 
-	public int getBudget() {
+	public int getBudget( ) {
 		return budget;
 	}
 
-	public void setReputationPoints(int reputationPoints) {
+	public void setReputationPoints( int reputationPoints ) {
 		this.reputationPoints = reputationPoints;
 	}
 
-	public int getReputationPoints() {
+	public int getReputationPoints( ) {
 		return reputationPoints;
 	}
 

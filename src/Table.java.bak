@@ -2,7 +2,7 @@
  * @(#) Table.java
  */
 public class Table {
-	private Client client;
+	private java.util.List<Client> clients;
 
 	private int number;
 

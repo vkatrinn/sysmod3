@@ -10,7 +10,15 @@ public class Client {
 
 	private String taxCode;
 
-	private MenuItem menuitem;
+	//private MenuItem menuitem;
+
+	
+public Client( String name, String surname, String telephone, String taxCode ) {
+		this.name = name;
+		this.surname = surname;
+		this.telephone = telephone;
+		this.taxCode = taxCode;
+	}
 
 	public void setName( String name ) {
 		this.name = name;

@@ -6,13 +6,13 @@ public class Player {
 
 	private Restaurant restaurant;
 
-	private MenuItem menuitem;
+	private java.util.List<MenuItem> menuitems;
 
 	private String name;
 
 	private int score;
 
-	private Employee employee;
+	private java.util.List<Employee> employees;
 
 	public void setName( String name ) {
 		this.name = name;

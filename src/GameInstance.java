@@ -15,6 +15,7 @@ public class GameInstance {
 
 	public static void main(String[] args) throws IOException {
 		StartGame();
+		startDay();
 
 	}
 
@@ -28,14 +29,23 @@ public class GameInstance {
 			if (in.equals("N") || in.equals("n"))
 				break;
 			if (in.equals("Y") || in.equals("y")) {
-
+				System.out.println("Which employee would you like to train?");
+				int i = 1;
+				for (Employee e : employees) {
+					System.out.println(i + ": " + e.getName() + " "
+							+ e.getSurname() + " ,current experience level: "
+							+ e.getExperience());
+					i++;
+				}
+				System.out
+						.println("Specify the number of employee you would like to train");
+				int indexOfEmployee = Integer.parseInt(br.readLine()) - 1;
+				game.TrainEmployee(employees.get(indexOfEmployee));
 			} else {
 				System.out
 						.println("I did not understand you. Was that a Yes (Y) or No (N)?");
 			}
-
 		}
-
 	}
 
 	public static void StartGame() throws IOException {

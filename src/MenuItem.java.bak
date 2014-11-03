@@ -4,9 +4,9 @@ import hw3.Quality;
  * @(#) MenuItem.java
  */
 public abstract class MenuItem {
-	private String name;
+	protected String name;
 
-	private Quality quality;
+	protected Quality quality;
 
 	private int price;
 

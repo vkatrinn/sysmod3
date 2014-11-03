@@ -1,26 +1,35 @@
 import hw3.ReputationLevel;
 
+import java.util.List;
+
 /**
  * @(#) Restaurant.java
  */
 public class Restaurant {
-	private MenuItem menuitem;
+	private java.util.List<MenuItem> menuitems;
 
-	private java.util.List<Employee> employee;
+	private java.util.List<Employee> employees;
 
-	private Table table;
+	private java.util.List<Table> tables;
 
 	private String name;
 
-	private String address;
+	private String address = "J.Liivi 2";
 
-	private String city;
+	private String city = "Tartu";
 
-	private int budget;
+	private int budget = 10000;
 
-	private int reputationPoints;
+	private int reputationPoints = 15;
 
-	private Orders orders;
+	private java.util.List<Order> orders;
+
+	public Restaurant(List<MenuItem> menuitem, List<Employee> employee,
+			String name) {
+		this.menuitems = menuitem;
+		this.employees = employee;
+		this.name = name;
+	}
 
 	public ReputationLevel CalculateReputation() {
 		if (reputationPoints < 15)
@@ -46,7 +55,7 @@ public class Restaurant {
 	}
 
 	public void paySalaries() {
-		for (Employee e : employee) {
+		for (Employee e : employees) {
 			this.budget -= e.ComputeSalary();
 		}
 	}

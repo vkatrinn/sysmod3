@@ -33,8 +33,7 @@ public abstract class Employee {
 	public void IncreaseExperience() {
 		if (this.experience.equals(Experience.LOW)) {
 			this.experience = Experience.MEDIUM;
-		}
-		if (this.experience.equals(Experience.MEDIUM)) {
+		} else if (this.experience.equals(Experience.MEDIUM)) {
 			this.experience = Experience.HIGH;
 		}
 	}
