@@ -9,6 +9,9 @@ public class GameController {
 
 	private Player player;
 
+	
+	private RankingList rankinglist;
+	
 	public GameController( ArrayList<MenuItem> menu, ArrayList<Employee> employees, ArrayList<Client> clients, String name ) throws IOException {
 		this.player = new Player(name);
 		this.restaurant = new Restaurant(menu, employees, clients, "Restaurant");
@@ -16,7 +19,7 @@ public class GameController {
 
 	public void trainEmployee( Employee employee ) {
 		if (restaurant.getBudget() > employee.getCostOfTraining()) {
-			employee.IncreaseExperience();
+			employee.increaseExperience();
 			restaurant.setBudget(restaurant.getBudget()
 					- employee.getCostOfTraining());
 			System.out

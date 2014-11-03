@@ -10,7 +10,7 @@ public abstract class Employee implements Comparable<Employee> {
 
 	private Experience experience;
 
-	public int ComputeSalary( ) {
+	public int computeSalary() {
 		int additionalSalary = 0;
 		if (this.experience.equals(Experience.LOW)) {
 			additionalSalary = 200;
@@ -24,13 +24,13 @@ public abstract class Employee implements Comparable<Employee> {
 		return additionalSalary;
 	}
 
-	public Employee( String name, String surname, Experience experience ) {
+	public Employee(String name, String surname, Experience experience) {
 		this.name = name;
 		this.surname = surname;
 		this.experience = experience;
 	}
 
-	public void IncreaseExperience( ) {
+	public void increaseExperience() {
 		if (this.experience.equals(Experience.LOW)) {
 			this.experience = Experience.MEDIUM;
 		} else if (this.experience.equals(Experience.MEDIUM)) {
@@ -38,34 +38,34 @@ public abstract class Employee implements Comparable<Employee> {
 		}
 	}
 
-	public void setName( String name ) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName( ) {
+	public String getName() {
 		return name;
 	}
 
-	public void setSurname( String surname ) {
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	public String getSurname( ) {
+	public String getSurname() {
 		return surname;
 	}
 
-	public void setExperience( Experience experience ) {
+	public void setExperience(Experience experience) {
 		this.experience = experience;
 	}
 
-	public Experience getExperience( ) {
+	public Experience getExperience() {
 		return experience;
 	}
 
-	public abstract int getCostOfTraining( );
+	public abstract int getCostOfTraining();
 
 	@Override
-	public int compareTo( Employee o ) {
+	public int compareTo(Employee o) {
 		if (this.experience.equals(o.experience))
 			return 0;
 		if ((this.experience.equals(Experience.LOW) && (o.experience

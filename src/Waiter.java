@@ -1,5 +1,6 @@
-import java.util.ArrayList;
 import hw3.Experience;
+
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -8,23 +9,23 @@ import java.util.List;
 public class Waiter extends Employee {
 	private java.util.List<Table> tables = new ArrayList<Table>();
 
-	public Waiter( String name, String surname, Experience experience ) {
+	public Waiter(String name, String surname, Experience experience) {
 		super(name, surname, experience);
 	}
 
-	public List<Table> getTables( ) {
+	public List<Table> getTables() {
 		return tables;
 	}
 
-	public void setTables( List<Table> tables ) {
+	public void setTables(List<Table> tables) {
 		this.tables = tables;
 	}
 
-	public int ComputeSalary( ) {
-		return super.ComputeSalary();
+	public int computeSalary() {
+		return super.computeSalary();
 	}
 
-	public int getCostOfTraining( ) {
+	public int getCostOfTraining() {
 		return 800;
 	}
 }

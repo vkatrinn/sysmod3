@@ -94,7 +94,7 @@ public class Restaurant {
 
 	public void paySalaries() {
 		for (Employee e : employees) {
-			this.budget -= e.ComputeSalary();
+			this.budget -= e.computeSalary();
 		}
 	}
 
@@ -219,11 +219,11 @@ public class Restaurant {
 		this.orders = orders;
 	}
 
-	public java.util.List<MenuItem> getMenuitems() {
+	public List<MenuItem> getMenuitems() {
 		return menuitems;
 	}
 
-	public void setMenuitems(java.util.List<MenuItem> menuitems) {
+	public void setMenuitems(List<MenuItem> menuitems) {
 		this.menuitems = menuitems;
 	}
 

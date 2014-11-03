@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 public class GameInstance {
 	static int day = 0;
+	static RankingList rankingList;
 	static GameController game;
 	static ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
 	static ArrayList<Client> clients = new ArrayList<Client>();
@@ -16,11 +17,14 @@ public class GameInstance {
 	public static void main(String[] args) throws IOException {
 		boolean successful = true;
 		StartGame();
+		rankingList = new RankingList(game.getPlayer());
 		int weeklySupplyCost = 0;
 		while (day < 30) {
-			if (day % 7 == 0)
+			if (day % 7 == 0) {
 				game.getRestaurant().setBudget(
 						game.getRestaurant().getBudget() - weeklySupplyCost);
+				game.getRestaurant().paySalaries();
+			}
 			if (game.getRestaurant().getBudget() < 0) {
 				successful = false;
 				break;
@@ -34,7 +38,7 @@ public class GameInstance {
 			System.out
 					.println("After substracting additional costs the final budget is: "
 							+ game.getRestaurant().getBudget());
-			new RankingList(game.getPlayer(), game.getRestaurant().getBudget());
+			rankingList.updateRanking();
 		} else {
 			System.out
 					.println("Unfortunately the budget is below 0 now, this means you lost! Feel free to play again");
