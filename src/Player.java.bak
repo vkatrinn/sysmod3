@@ -3,12 +3,6 @@
  */
 public class Player {
 
-	private RankingList rankinglist;
-
-	private Restaurant restaurant;
-
-	private java.util.List<MenuItem> menuitems;
-
 	private String name;
 
 	private int score;

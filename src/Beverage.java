@@ -6,22 +6,22 @@ import hw3.Quality;
 public class Beverage extends MenuItem {
 	private int volume;
 
-	public Beverage(String name, int volume, Quality quality) {
+	public Beverage( String name, int volume, Quality quality ) {
 		this.name = name;
 		this.volume = volume;
 		this.quality = quality;
 	}
 
-	public void setVolume(int volume) {
+	public void setVolume( int volume ) {
 		this.volume = volume;
 	}
 
-	public int getVolume() {
+	public int getVolume( ) {
 		return volume;
 	}
 
 	@Override
-	public int computeProductionPrice() {
+	public int computeProductionPrice( ) {
 		if (this.getQuality().equals(Quality.HIGH))
 			return 3;
 		else

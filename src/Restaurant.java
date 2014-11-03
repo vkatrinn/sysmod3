@@ -1,10 +1,9 @@
-import hw3.Experience;
-import hw3.ReputationLevel;
-
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import hw3.Experience;
 import java.util.Random;
+import hw3.ReputationLevel;
+import java.util.List;
+import java.util.Collections;
 
 /**
  * @(#) Restaurant.java
@@ -31,15 +30,14 @@ public class Restaurant {
 
 	private java.util.List<Client> clients;
 
-	public Restaurant(List<MenuItem> menuitem, List<Employee> employee,
-			List<Client> clients, String name) {
+	public Restaurant( List<MenuItem> menuitem, List<Employee> employee, List<Client> clients, String name ) {
 		this.menuitems = menuitem;
 		this.employees = employee;
 		this.clients = clients;
 		this.name = name;
 	}
 
-	public ReputationLevel calculateReputation() {
+	public ReputationLevel calculateReputation( ) {
 		if (reputationPoints < 15)
 			return ReputationLevel.LOW;
 		if (reputationPoints >= 30)
@@ -47,7 +45,7 @@ public class Restaurant {
 		return ReputationLevel.MEDIUM;
 	}
 
-	public void assignTables() {
+	public void assignTables( ) {
 		int i = 0;
 		if (this.calculateReputation().equals(ReputationLevel.LOW)) {
 			i = 2;
@@ -75,7 +73,7 @@ public class Restaurant {
 		System.out.println(i + " tables assigned to waitresses!");
 	}
 
-	public void populateTables() {
+	public void populateTables( ) {
 		Random r = new Random();
 		for (Table t : tables) {
 			int r1 = r.nextInt(18);
@@ -88,57 +86,57 @@ public class Restaurant {
 		System.out.println("Tables have been populated by clients");
 	}
 
-	public void computeClientStatistics() {
+	public void computeClientStatistics( ) {
 
 	}
 
-	public void paySalaries() {
+	public void paySalaries( ) {
 		for (Employee e : employees) {
 			this.budget -= e.computeSalary();
 		}
 	}
 
-	public void setName(String name) {
+	public void setName( String name ) {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName( ) {
 		return name;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress( String address ) {
 		this.address = address;
 	}
 
-	public String getAddress() {
+	public String getAddress( ) {
 		return address;
 	}
 
-	public void setCity(String city) {
+	public void setCity( String city ) {
 		this.city = city;
 	}
 
-	public String getCity() {
+	public String getCity( ) {
 		return city;
 	}
 
-	public void setBudget(int budget) {
+	public void setBudget( int budget ) {
 		this.budget = budget;
 	}
 
-	public int getBudget() {
+	public int getBudget( ) {
 		return budget;
 	}
 
-	public void setReputationPoints(int reputationPoints) {
+	public void setReputationPoints( int reputationPoints ) {
 		this.reputationPoints = reputationPoints;
 	}
 
-	public int getReputationPoints() {
+	public int getReputationPoints( ) {
 		return reputationPoints;
 	}
 
-	public ArrayList<Waiter> getWaiters() {
+	public ArrayList<Waiter> getWaiters( ) {
 		ArrayList<Waiter> waiters = new ArrayList<Waiter>();
 		for (Employee e : employees) {
 			if (e.getClass().equals(
@@ -148,7 +146,7 @@ public class Restaurant {
 		return waiters;
 	}
 
-	public void acceptOrders() {
+	public void acceptOrders( ) {
 		orders = new ArrayList<Order>();
 		Random r = new Random();
 		for (Table t : tables) {
@@ -180,7 +178,7 @@ public class Restaurant {
 		}
 	}
 
-	public Waiter findWaiter(Table t) {
+	public Waiter findWaiter( Table t ) {
 		Waiter waiter = new Waiter("Waiter", "Waiter", Experience.LOW);
 		ArrayList<Waiter> waiters = getWaiters();
 		for (Waiter w : waiters) {
@@ -190,7 +188,7 @@ public class Restaurant {
 		return waiter;
 	}
 
-	public int processOrders() {
+	public int processOrders( ) {
 		int supplyCost = 0;
 		for (Order o : orders) {
 			this.budget += o.calculatePrice();
@@ -211,19 +209,19 @@ public class Restaurant {
 		return supplyCost;
 	}
 
-	public List<Order> getOrders() {
+	public List<Order> getOrders( ) {
 		return orders;
 	}
 
-	public void setOrders(List<Order> orders) {
+	public void setOrders( List<Order> orders ) {
 		this.orders = orders;
 	}
 
-	public List<MenuItem> getMenuitems() {
+	public List<MenuItem> getMenuitems( ) {
 		return menuitems;
 	}
 
-	public void setMenuitems(List<MenuItem> menuitems) {
+	public void setMenuitems( List<MenuItem> menuitems ) {
 		this.menuitems = menuitems;
 	}
 

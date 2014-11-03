@@ -1,8 +1,8 @@
 import java.io.BufferedWriter;
+import java.io.PrintWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 /**
  * @(#) RankingList.java
@@ -10,11 +10,11 @@ import java.io.PrintWriter;
 public class RankingList {
 	public Player player;
 
-	public RankingList(Player player) {
+	public RankingList( Player player ) {
 		this.player = player;
 	}
 
-	public void updateRanking() throws IOException {
+	public void updateRanking( ) throws IOException {
 		File rankingList = new File("rankingList.txt");
 		if (!rankingList.exists()) {
 			rankingList.createNewFile();

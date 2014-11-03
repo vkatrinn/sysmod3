@@ -6,17 +6,16 @@ import hw3.Experience;
 public class Chef extends Employee {
 	private String taxcode;
 
-	public Chef(String name, String surname, Experience experience,
-			String taxcode) {
+	public Chef( String name, String surname, Experience experience, String taxcode ) {
 		super(name, surname, experience);
 		this.taxcode = taxcode;
 	}
 
-	public int computeSalary() {
+	public int computeSalary( ) {
 		return super.computeSalary() + 100;
 	}
 
-	public int getCostOfTraining() {
+	public int getCostOfTraining( ) {
 		return 1200;
 	}
 

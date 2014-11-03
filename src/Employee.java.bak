@@ -10,7 +10,7 @@ public abstract class Employee implements Comparable<Employee> {
 
 	private Experience experience;
 
-	public int ComputeSalary( ) {
+	public int computeSalary( ) {
 		int additionalSalary = 0;
 		if (this.experience.equals(Experience.LOW)) {
 			additionalSalary = 200;
@@ -30,7 +30,7 @@ public abstract class Employee implements Comparable<Employee> {
 		this.experience = experience;
 	}
 
-	public void IncreaseExperience( ) {
+	public void increaseExperience( ) {
 		if (this.experience.equals(Experience.LOW)) {
 			this.experience = Experience.MEDIUM;
 		} else if (this.experience.equals(Experience.MEDIUM)) {

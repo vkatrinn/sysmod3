@@ -9,8 +9,8 @@ public class Barman extends Employee {
 		super(name, surname, experience);
 	}
 
-	public int ComputeSalary( ) {
-		return super.ComputeSalary() + 100;
+	public int computeSalary( ) {
+		return super.computeSalary() + 100;
 	}
 
 	public int getCostOfTraining( ) {

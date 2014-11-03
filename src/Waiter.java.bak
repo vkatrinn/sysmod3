@@ -20,8 +20,8 @@ public class Waiter extends Employee {
 		this.tables = tables;
 	}
 
-	public int ComputeSalary( ) {
-		return super.ComputeSalary();
+	public int computeSalary( ) {
+		return super.computeSalary();
 	}
 
 	public int getCostOfTraining( ) {
