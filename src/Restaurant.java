@@ -10,13 +10,6 @@ import java.util.Random;
  * @(#) Restaurant.java
  */
 public class Restaurant {
-	public List<Order> getOrders() {
-		return orders;
-	}
-
-	public void setOrders(List<Order> orders) {
-		this.orders = orders;
-	}
 
 	private java.util.List<MenuItem> menuitems;
 
@@ -167,7 +160,7 @@ public class Restaurant {
 				menuChoice.add(menuitems.get(beverage));
 				int foodSatProb = 80;
 				int bevSatProb = 80;
-				int servSatProb = 80;
+				int servSatProb = 90;
 				if (employees.get(4).getExperience().equals(Experience.LOW))
 					foodSatProb = 40;
 				if (employees.get(4).getExperience().equals(Experience.MEDIUM))
@@ -177,9 +170,9 @@ public class Restaurant {
 				if (employees.get(3).getExperience().equals(Experience.MEDIUM))
 					bevSatProb = 60;
 				if (findWaiter(t).getExperience().equals(Experience.LOW))
-					bevSatProb = 40;
-				if (findWaiter(t).getExperience().equals(Experience.MEDIUM))
 					bevSatProb = 60;
+				if (findWaiter(t).getExperience().equals(Experience.MEDIUM))
+					bevSatProb = 80;
 				Order order = new Order(c, menuChoice, foodSatProb, bevSatProb,
 						servSatProb);
 				orders.add(order);
@@ -202,7 +195,36 @@ public class Restaurant {
 		for (Order o : orders) {
 			this.budget += o.calculatePrice();
 			supplyCost += o.calculateProductionCost();
+			if (o.isFoodSat())
+				reputationPoints++;
+			else
+				reputationPoints--;
+			if (o.isBevSat())
+				reputationPoints++;
+			else
+				reputationPoints--;
+			if (o.isServSat())
+				reputationPoints++;
+			else
+				reputationPoints--;
 		}
 		return supplyCost;
 	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public java.util.List<MenuItem> getMenuitems() {
+		return menuitems;
+	}
+
+	public void setMenuitems(java.util.List<MenuItem> menuitems) {
+		this.menuitems = menuitems;
+	}
+
 }

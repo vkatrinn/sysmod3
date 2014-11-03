@@ -14,20 +14,31 @@ public class GameInstance {
 	static ArrayList<Employee> employees = new ArrayList<Employee>();
 
 	public static void main(String[] args) throws IOException {
+		boolean successful = true;
 		StartGame();
 		int weeklySupplyCost = 0;
 		while (day < 30) {
 			if (day % 7 == 0)
 				game.getRestaurant().setBudget(
 						game.getRestaurant().getBudget() - weeklySupplyCost);
+			if (game.getRestaurant().getBudget() < 0) {
+				successful = false;
+				break;
+			}
 			startDay();
 			weeklySupplyCost += game.getRestaurant().processOrders();
 		}
 		game.getRestaurant().setBudget(
 				game.getRestaurant().getBudget() - weeklySupplyCost - 4000);
-		System.out
-				.println("After substracting additional costs the final budget is: "
-						+ game.getRestaurant().getBudget());
+		if (successful && game.getRestaurant().getBudget() >= 0) {
+			System.out
+					.println("After substracting additional costs the final budget is: "
+							+ game.getRestaurant().getBudget());
+			new RankingList(game.getPlayer(), game.getRestaurant().getBudget());
+		} else {
+			System.out
+					.println("Unfortunately the budget is below 0 now, this means you lost! Feel free to play again");
+		}
 	}
 
 	public static void startDay() throws IOException {
@@ -35,12 +46,25 @@ public class GameInstance {
 		System.out.println("Budget is currently "
 				+ game.getRestaurant().getBudget() + ".");
 		offerTrainingOption();
+		offerFoodPriceChanging();
 		System.out.println("Reputation of your restaurant is currently "
 				+ game.getRestaurant().calculateReputation() + ".");
 		game.getRestaurant().assignTables();
 		game.getRestaurant().populateTables();
 		game.getRestaurant().acceptOrders();
 		day++;
+
+	}
+
+	public static void offerFoodPriceChanging() throws IOException {
+		System.out
+				.println("Would you like to change prices of itmes today? (type Y if you do)");
+		String in = new BufferedReader(new InputStreamReader(System.in))
+				.readLine();
+		if (in.equals("Y") || in.equals("y")) {
+			initiateFoodPrice();
+			game.getRestaurant().setMenuitems(menuItems);
+		}
 
 	}
 
