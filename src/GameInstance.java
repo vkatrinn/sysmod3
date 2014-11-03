@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class GameInstance {
-	static int day;
+	static int day = 0;
 	static GameController game;
 	static ArrayList<MenuItem> menuItems = new ArrayList<MenuItem>();
 	static ArrayList<Client> clients = new ArrayList<Client>();
@@ -15,7 +15,8 @@ public class GameInstance {
 
 	public static void main(String[] args) throws IOException {
 		StartGame();
-		startDay();
+		while (day < 30)
+			startDay();
 	}
 
 	public static void startDay() throws IOException {
@@ -27,6 +28,7 @@ public class GameInstance {
 				+ game.getRestaurant().calculateReputation() + ".");
 		game.getRestaurant().assignTables();
 		game.getRestaurant().populateTables();
+		day++;
 
 	}
 
