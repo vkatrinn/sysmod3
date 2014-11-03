@@ -17,5 +17,4 @@ public class Order {
 		return menuItems;
 	}
 
-	// no setters
 }

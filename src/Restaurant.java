@@ -4,6 +4,7 @@ import hw3.ReputationLevel;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @(#) Restaurant.java
@@ -27,10 +28,13 @@ public class Restaurant {
 
 	private java.util.List<Order> orders;
 
+	private java.util.List<Client> clients;
+
 	public Restaurant(List<MenuItem> menuitem, List<Employee> employee,
-			String name) {
+			List<Client> clients, String name) {
 		this.menuitems = menuitem;
 		this.employees = employee;
+		this.clients = clients;
 		this.name = name;
 	}
 
@@ -66,11 +70,21 @@ public class Restaurant {
 			} else
 				waiters.get(2).getTables().add(tablesforDay.get(j));
 		}
+		this.tables = tablesforDay;
 		System.out.println(i + " tables assigned to waitresses!");
 	}
 
 	public void populateTables() {
-
+		Random r = new Random();
+		for (Table t : tables) {
+			int r1 = r.nextInt(18);
+			int r2 = r.nextInt(18);
+			while (r2 == r1)
+				r2 = r.nextInt(18);
+			t.getClients().add(clients.get(r1));
+			t.getClients().add(clients.get(r2));
+		}
+		System.out.println("Tables have been populated by clients");
 	}
 
 	public void computeClientStatistics() {

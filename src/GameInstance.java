@@ -26,6 +26,7 @@ public class GameInstance {
 		System.out.println("Reputation of your restaurant is currently "
 				+ game.getRestaurant().calculateReputation() + ".");
 		game.getRestaurant().assignTables();
+		game.getRestaurant().populateTables();
 
 	}
 
@@ -50,7 +51,7 @@ public class GameInstance {
 						.println("Specify the number of employee you would like to train");
 				try {
 					int indexOfEmployee = Integer.parseInt(br.readLine()) - 1;
-					game.TrainEmployee(employees.get(indexOfEmployee));
+					game.trainEmployee(employees.get(indexOfEmployee));
 				} catch (NumberFormatException e) {
 					System.out
 							.println("That is not a suitable employee number. Did you change your mind?");
@@ -70,7 +71,7 @@ public class GameInstance {
 		initiateFoodPrice();
 		initiateClients();
 		initiateEmployees();
-		game = new GameController(menuItems, employees, name);
+		game = new GameController(menuItems, employees, clients, name);
 
 	}
 

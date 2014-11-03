@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 /**
  * @(#) Table.java
  */
 public class Table {
-	private java.util.List<Client> clients;
+	private java.util.List<Client> clients = new ArrayList<Client>();
 
 	private int number;
 
@@ -16,6 +18,14 @@ public class Table {
 
 	public int getNumber() {
 		return number;
+	}
+
+	public java.util.List<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(java.util.List<Client> clients) {
+		this.clients = clients;
 	}
 
 }
