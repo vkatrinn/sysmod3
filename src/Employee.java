@@ -10,7 +10,7 @@ public abstract class Employee {
 
 	private Experience experience;
 
-	public int ComputeSalary( ) {
+	public int ComputeSalary() {
 		int additionalSalary = 0;
 		if (this.experience.equals(Experience.LOW)) {
 			additionalSalary = 200;
@@ -24,7 +24,13 @@ public abstract class Employee {
 		return additionalSalary;
 	}
 
-	public void IncreaseExperience( ) {
+	public Employee(String name, String surname, Experience experience) {
+		this.name = name;
+		this.surname = surname;
+		this.experience = experience;
+	}
+
+	public void IncreaseExperience() {
 		if (this.experience.equals(Experience.LOW)) {
 			this.experience = Experience.MEDIUM;
 		}
@@ -33,30 +39,30 @@ public abstract class Employee {
 		}
 	}
 
-	public void setName( String name ) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getName( ) {
+	public String getName() {
 		return name;
 	}
 
-	public void setSurname( String surname ) {
+	public void setSurname(String surname) {
 		this.surname = surname;
 	}
 
-	public String getSurname( ) {
+	public String getSurname() {
 		return surname;
 	}
 
-	public void setExperience( Experience experience ) {
+	public void setExperience(Experience experience) {
 		this.experience = experience;
 	}
 
-	public Experience getExperience( ) {
+	public Experience getExperience() {
 		return experience;
 	}
 
-	public abstract int getCostOfTraining( );
+	public abstract int getCostOfTraining();
 
 }
