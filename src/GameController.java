@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * @(#) GameController.java
@@ -9,12 +9,14 @@ public class GameController {
 
 	private Player player;
 
-	public GameController( ArrayList<MenuItem> menu, ArrayList<Employee> employees, ArrayList<Client> clients, String name ) throws IOException {
+	public GameController(ArrayList<MenuItem> menu,
+			ArrayList<Employee> employees, ArrayList<Client> clients,
+			String name) throws IOException {
 		this.player = new Player(name);
 		this.restaurant = new Restaurant(menu, employees, clients, "Restaurant");
 	}
 
-	public void trainEmployee( Employee employee ) {
+	public void trainEmployee(Employee employee) {
 		if (restaurant.getBudget() > employee.getCostOfTraining()) {
 			employee.increaseExperience();
 			restaurant.setBudget(restaurant.getBudget()
@@ -26,24 +28,20 @@ public class GameController {
 			System.out.println("Not enough money to train!");
 	}
 
-	public Restaurant getRestaurant( ) {
+	public Restaurant getRestaurant() {
 		return restaurant;
 	}
 
-	public void setRestaurant( Restaurant restaurant ) {
+	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
 
-	public Player getPlayer( ) {
+	public Player getPlayer() {
 		return player;
 	}
 
-	public void setPlayer( Player player ) {
+	public void setPlayer(Player player) {
 		this.player = player;
-	}
-
-	public void TrainEmployee( Employee employee ) {
-
 	}
 
 }
