@@ -58,8 +58,6 @@ public class Restaurant {
 		}
 		ArrayList<Waiter> waiters = getWaiters();
 		Collections.sort(waiters);
-		for (Waiter w : waiters)
-			System.out.println(w.getExperience());
 		for (int j = 0; j < i; j++) {
 			if (j < 3) {
 				waiters.get(0).getTables().add(tablesforDay.get(j));

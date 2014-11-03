@@ -2,6 +2,7 @@
  * @(#) Player.java
  */
 public class Player {
+
 	private RankingList rankinglist;
 
 	private Restaurant restaurant;
@@ -14,19 +15,24 @@ public class Player {
 
 	private java.util.List<Employee> employees;
 
-	public void setName( String name ) {
+	public Player(String name) {
+		super();
 		this.name = name;
 	}
 
-	public String getName( ) {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getName() {
 		return name;
 	}
 
-	public void setScore( int score ) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 
-	public int getScore( ) {
+	public int getScore() {
 		return score;
 	}
 

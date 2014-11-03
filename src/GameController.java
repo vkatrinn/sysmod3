@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -8,13 +9,9 @@ public class GameController {
 
 	private Player player;
 
-	public void ChooseName(String name) {
-		this.player.setName(name);
-	}
-
 	public GameController(ArrayList<MenuItem> menu,
-			ArrayList<Employee> employees) {
-		this.player = new Player();
+			ArrayList<Employee> employees, String name) throws IOException {
+		this.player = new Player(name);
 		this.restaurant = new Restaurant(menu, employees, "Restaurant");
 	}
 
@@ -44,11 +41,6 @@ public class GameController {
 
 	public void setPlayer(Player player) {
 		this.player = player;
-	}
-
-	public void SetFoodPrice(int lowBcost, int highBcost, int highDcost,
-			int lowDcost) {
-
 	}
 
 }

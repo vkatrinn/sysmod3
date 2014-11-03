@@ -16,7 +16,6 @@ public class GameInstance {
 	public static void main(String[] args) throws IOException {
 		StartGame();
 		startDay();
-
 	}
 
 	public static void startDay() throws IOException {
@@ -64,13 +63,18 @@ public class GameInstance {
 	}
 
 	public static void StartGame() throws IOException {
-		initiateMenuItems();
+		System.out.println("Welcome to restaurant game! Choose your name:");
+		String name = new BufferedReader(new InputStreamReader(System.in))
+				.readLine();
+		initiateMenuItemQualities();
+		initiateFoodPrice();
 		initiateClients();
 		initiateEmployees();
-		game = new GameController(menuItems, employees);
+		game = new GameController(menuItems, employees, name);
+
 	}
 
-	public static void initiateMenuItems() throws IOException {
+	public static void initiateMenuItemQualities() throws IOException {
 		String dish = "Dish1";
 		System.out
 				.println("For each dish and beverage in the menu, assign a quality. "
@@ -104,6 +108,61 @@ public class GameInstance {
 	public static void initiateClients() {
 		for (int i = 1; i < 19; i++) {
 			clients.add(new Client("Client" + i, "Client" + i, "010-...", "0"));
+		}
+	}
+
+	public static void initiateFoodPrice() throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		System.out.println("What should be the price for high quality dishes?");
+		String in = br.readLine();
+		int priceHD = 11;
+		try {
+			priceHD = Integer.parseInt(br.readLine());
+		} catch (NumberFormatException e) {
+			System.out
+					.println("Input not integer number. Price will be set at 11");
+		}
+		System.out
+				.println("What should be the price for high quality beverages?");
+		in = br.readLine();
+		int priceHB = 4;
+		try {
+			priceHB = Integer.parseInt(br.readLine());
+		} catch (NumberFormatException e) {
+			System.out
+					.println("Input not integer number. Price will be set at 4");
+		}
+		System.out.println("What should be the price for low quality dishes?");
+		in = br.readLine();
+		int priceLD = 4;
+		try {
+			priceLD = Integer.parseInt(br.readLine());
+		} catch (NumberFormatException e) {
+			System.out
+					.println("Input not integer number. Price will be set at 4");
+		}
+		System.out
+				.println("What should be the price for low quality beverages?");
+		in = br.readLine();
+		int priceLB = 2;
+		try {
+			priceLB = Integer.parseInt(br.readLine());
+		} catch (NumberFormatException e) {
+			System.out
+					.println("Input not integer number. Price will be set at 2");
+		}
+		for (int i = 0; i < 10; i++) {
+			if (i < 5) {
+				if (menuItems.get(i).getQuality().equals(Quality.HIGH))
+					menuItems.get(i).setPrice(priceHD);
+				else
+					menuItems.get(i).setPrice(priceLD);
+			} else {
+				if (menuItems.get(i).getQuality().equals(Quality.HIGH))
+					menuItems.get(i).setPrice(priceHB);
+				else
+					menuItems.get(i).setPrice(priceLB);
+			}
 		}
 	}
 
